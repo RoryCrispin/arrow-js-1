@@ -5,7 +5,7 @@
  */
 
 /* Pass in (window, document, undefined) to have an unmodified version of the variable in our function scope */
-window.Arrow = (function (window, document, undefined) {
+export const Arrow = (function (window, document, undefined) {
 
     'use strict';
 
