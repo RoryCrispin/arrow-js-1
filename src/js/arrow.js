@@ -5,7 +5,7 @@
  */
 
 /* Pass in (window, document, undefined) to have an unmodified version of the variable in our function scope */
-export const Arrow = (function (window, document, undefined) {
+var Arrow = (function (window, document, undefined) {
 
     'use strict';
 
@@ -21,7 +21,7 @@ export const Arrow = (function (window, document, undefined) {
      * Other available arrows to use. Planning on adding more colors
      *
      * https://i.imgur.com/aMwoyfN.png // orange arrow
-     * https://i.imgur.com/MZRB3eb.png // green arrow 
+     * https://i.imgur.com/MZRB3eb.png // green arrow
      */
 
     /**
@@ -39,7 +39,7 @@ export const Arrow = (function (window, document, undefined) {
 			(ua.toLowerCase().indexOf('edge')!=-1)?
 				"edge":
 				M[0].toLowerCase();
-		
+
         browserVersion = parseInt(M[1], 10);
     })();
 
@@ -128,7 +128,7 @@ export const Arrow = (function (window, document, undefined) {
         node.style.height = '309px';
         node.style.width = '186px';
         node.style.opacity = 0;
-        node.style.backgroundImage = 'url(https://i.imgur.com/aMwoyfN.png)';
+        node.style.backgroundImage = 'url(data:image/svg+xml;utf9,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="128" viewBox="0 0 120 128"> <g fill="#1CCE6B" fill-rule="nonzero"> <path d="M38 0h44a2 2 0 0 1 2 2v78H36V2a2 2 0 0 1 2-2zM61.2 127.1l58-43.5A2 2 0 0 0 118 80H2a2 2 0 0 0-1.2 3.6l58 43.5a2 2 0 0 0 2.4 0z"/></g> </svg>)';
         node.style.backgroundRepeat = 'no-repeat';
         node.style.backgroundPositionX = '0';
         node.style.backgroundPositionY = '0';
@@ -204,8 +204,8 @@ export const Arrow = (function (window, document, undefined) {
         node.style.transform = 'rotateX(180deg) rotateY(180deg)';
         node.style.MozTransform = 'rotateX(180deg) rotateY(180deg)';
     }
-	
-	
+
+
 
     /**
      * Chrome's a simple one
@@ -216,10 +216,10 @@ export const Arrow = (function (window, document, undefined) {
      * @private
      */
     function _applyStyleWebkit(node) {
-        node.style.bottom = '50px'; 
+        node.style.bottom = '50px';
         node.style.left = '20px';
     }
-	
+
     /**
      * Safari
      *
