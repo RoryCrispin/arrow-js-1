@@ -128,7 +128,7 @@ var Arrow = (function (window, document, undefined) {
         node.style.height = '309px';
         node.style.width = '186px';
         node.style.opacity = 0;
-        node.style.backgroundImage = 'url(data:image/svg+xml;utf9,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="128" viewBox="0 0 120 128"> <g fill="#1CCE6B" fill-rule="nonzero"> <path d="M38 0h44a2 2 0 0 1 2 2v78H36V2a2 2 0 0 1 2-2zM61.2 127.1l58-43.5A2 2 0 0 0 118 80H2a2 2 0 0 0-1.2 3.6l58 43.5a2 2 0 0 0 2.4 0z"/></g> </svg>)';
+        node.style.backgroundImage = 'url(data:image/svg+xml;utf9, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%22128%22%20viewBox%3D%220%200%20120%20128%22%3E%20%3Cg%20fill%3D%22%23007fc8%22%20fill-rule%3D%22nonzero%22%3E%20%3Cpath%20d%3D%22M38%200h44a2%202%200%200%201%202%202v78H36V2a2%202%200%200%201%202-2zM61.2%20127.1l58-43.5A2%202%200%200%200%20118%2080H2a2%202%200%200%200-1.2%203.6l58%2043.5a2%202%200%200%200%202.4%200z%22%2F%3E%3C%2Fg%3E%20%3C%2Fsvg%3E%20)';
         node.style.backgroundRepeat = 'no-repeat';
         node.style.backgroundPositionX = '0';
         node.style.backgroundPositionY = '0';
