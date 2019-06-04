@@ -125,10 +125,9 @@ var Arrow = (function (window, document, undefined) {
         node.style.position = 'fixed';
         node.style.zIndex = 999;
         node.style.display = 'none';
-        node.style.height = '309px';
-        node.style.width = '186px';
+        node.style.height = '130px';
+        node.style.width = '120px';
         node.style.opacity = 0;
-        node.style.backgroundImage = 'url(data:image/svg+xml;utf9, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%22128%22%20viewBox%3D%220%200%20120%20128%22%3E%20%3Cg%20fill%3D%22%23007fc8%22%20fill-rule%3D%22nonzero%22%3E%20%3Cpath%20d%3D%22M38%200h44a2%202%200%200%201%202%202v78H36V2a2%202%200%200%201%202-2zM61.2%20127.1l58-43.5A2%202%200%200%200%20118%2080H2a2%202%200%200%200-1.2%203.6l58%2043.5a2%202%200%200%200%202.4%200z%22%2F%3E%3C%2Fg%3E%20%3C%2Fsvg%3E%20)';
         node.style.backgroundRepeat = 'no-repeat';
         node.style.backgroundPositionX = '0';
         node.style.backgroundPositionY = '0';
@@ -145,37 +144,8 @@ var Arrow = (function (window, document, undefined) {
         node.style.top = '10px';
         node.style.left = '20px';
 
-        // Only one filter style can exist so we concatenate them to one line
-        var opacity = 'progid:DXImageTransform.Microsoft.Alpha(opacity=0) ',
-            imgSrc = 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="https://i.imgur.com/aMwoyfN.png", sizingMethod="scale") ',
-            rotation = 'progid:DXImageTransform.Microsoft.Matrix(M11=1, M12=1.2246063538223773e-16, M21=-1.2246063538223773e-16, M22=-1, SizingMethod="auto expand") ';
-
-        node.style.filter = opacity + imgSrc + rotation;
-
-        /*
-         * CSS looks like this
-         *
-         * filter: progid:DXImageTransform.Microsoft.Matrix(
-         *    M11 = COS_THETA,
-         *    M12 = -SIN_THETA,
-         *    M21 = SIN_THETA,
-         *    M22 = COS_THETA,
-         *    sizingMethod = 'auto expand'
-         * );
-         *
-         * ---
-         * How to access IE filters with JS
-         *
-         * node.filters.item('DXImageTransform.Microsoft.Alpha').opacity = 0;
-         * node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = 'https://i.imgur.com/aMwoyfN.png';
-         * node.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').sizingMethod = 'scale';
-         * node.filters.item('DXImageTransform.Microsoft.Matrix').M11 = 1;
-         * node.filters.item('DXImageTransform.Microsoft.Matrix').M12 = 1.2246063538223773e-16;
-         * node.filters.item('DXImageTransform.Microsoft.Matrix').M21 = -1.2246063538223773e-16;
-         * node.filters.item('DXImageTransform.Microsoft.Matrix').M22 = -1;
-         * node.filters.item('DXImageTransform.Microsoft.Matrix').SizingMethod = 'auto expand';
-         *
-         */
+        node.style.transform = 'rotateX(180deg) rotateY(180deg)';
+        node.style.webkitTransform = 'rotateX(180deg) rotateY(180deg)';
     }
 
     /**
@@ -186,8 +156,10 @@ var Arrow = (function (window, document, undefined) {
      * @private
      */
     function _applyStyleMs(node) {
-        node.style.bottom = '50px';
-        node.style.left = '67%';
+        node.style.bottom = '80px';
+        node.style.left = '50%';
+        node.style.transform = 'rotateX(180deg) rotateY(180deg)';
+        node.style.webkitTransform = 'rotateX(180deg) rotateY(180deg)';
     }
 
 
@@ -200,9 +172,9 @@ var Arrow = (function (window, document, undefined) {
      */
     function _applyStyleMoz(node) {
         node.style.top = '0px';
-        node.style.right = '37px';
-        node.style.transform = 'rotateX(180deg) rotateY(180deg)';
-        node.style.MozTransform = 'rotateX(180deg) rotateY(180deg)';
+        node.style.right = '47px';
+        // node.style.transform = 'rotateX(180deg) rotateY(180deg)';
+        // node.style.MozTransform = 'rotateX(180deg) rotateY(180deg)';
     }
 
 
@@ -216,8 +188,10 @@ var Arrow = (function (window, document, undefined) {
      * @private
      */
     function _applyStyleWebkit(node) {
-        node.style.bottom = '50px';
+        node.style.bottom = '0';
         node.style.left = '20px';
+        node.style.transform = 'rotateX(180deg) rotateY(180deg)';
+        node.style.webkitTransform = 'rotateX(180deg) rotateY(180deg)';
     }
 
     /**
@@ -230,8 +204,8 @@ var Arrow = (function (window, document, undefined) {
     function _applyStyleSafari(node) {
         node.style.top = '0px';
 		node.style.right = '80px';
-		node.style.transform = 'rotateX(180deg) rotateY(180deg)';
-		node.style.webkitTransform = 'rotateX(180deg) rotateY(180deg)';
+		// node.style.transform = 'rotateX(180deg) rotateY(180deg)';
+		// node.style.webkitTransform = 'rotateX(180deg) rotateY(180deg)';
     }
 
     /**
@@ -274,9 +248,12 @@ var Arrow = (function (window, document, undefined) {
      * @private
      */
     function _buildArrow() {
+
         var div = document.createElement('div');
         div.setAttribute('id', 'arrow-' + browser);
+        div.classList.add('arrow-js-arrow');
         arrowNode = div; //only used in resizing ie9
+        div.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="120" height="128" viewBox="0 0 120 128" style="height: inherit;"> <g fill="#1CCE6B" fill-rule="nonzero"> <path d="M38 128h44a2 2 0 0 0 2-2V48H36v78a2 2 0 0 0 2 2zM61.2.9l58 43.5A2 2 0 0 1 118 48H2a2 2 0 0 1-1.2-3.6L58.8.9a2 2 0 0 1 2.4 0z"/> </g> </svg> ';
         return div;
     }
 

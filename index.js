@@ -1,2 +1,2 @@
-module.exports = require("./dist/arrow-js-exported-0.1.13.min");
+module.exports = require("./dist/arrow-js-exported-0.1.34.min");
 
